@@ -1,6 +1,6 @@
 from __future__ import division
 import random
-from numpy import dot
+from linear_algebra import dot
 from gradient_descent import minimize_stochastic
 
 
@@ -20,8 +20,9 @@ def squared_error(x_i, y_i, beta):
 def squared_error_gradient(x_i, y_i, beta):
     """the gradient (with respect to beta)
     corresponding to the ith squared error term"""
-    return [-2 * x_i * error(x_i, y_i, beta)
+    return [-2 * x_ij * error(x_i, y_i, beta)
             for x_ij in x_i]
+
 
 def estimate_beta(x, y):
     beta_initial = [random.random() for x_i in x[0]]

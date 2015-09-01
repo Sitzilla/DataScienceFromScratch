@@ -15,4 +15,9 @@ def vector_subtract(v, w):
 
 def scalar_multiply(c, v):
     """c is a number, v is a vector"""
-    return reduce(vector_add, vectors)
+    return [c * v_i for v_i in v]
+
+
+def dot(v, w):
+    return sum(v_i * w_i
+               for v_i, w_i in zip(v, w))

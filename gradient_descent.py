@@ -1,6 +1,7 @@
 import random
 from linear_algebra import vector_subtract, scalar_multiply
 
+
 def in_random_order(data):
     """generator that returns the elements of data in random order"""
     indexes = [i for i, _ in enumerate(data)]
@@ -8,7 +9,8 @@ def in_random_order(data):
     for i in indexes:
         yield data[i]
 
-def minimize_stochastic(target_fn, gradient_fn, x, y, theta_0, alpha_0 = 0.01):
+
+def minimize_stochastic(target_fn, gradient_fn, x, y, theta_0, alpha_0=0.01):
     data = zip(x, y)
     theta = theta_0
     alpha = alpha_0
@@ -17,7 +19,7 @@ def minimize_stochastic(target_fn, gradient_fn, x, y, theta_0, alpha_0 = 0.01):
 
     # if 100 iterations with no improvement then stop
     while iterations_with_no_improvement < 100:
-        value = sum( target_fn(x_i, y_i, theta) for x_i, y_i in data)
+        value = sum(target_fn(x_i, y_i, theta) for x_i, y_i in data)
 
         if value < min_value:
             # if we found a new min then remember it
