@@ -1,5 +1,5 @@
 import random
-
+from linear_algebra import vector_subtract, scalar_multiply
 
 def in_random_order(data):
     """generator that returns the elements of data in random order"""
