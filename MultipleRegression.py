@@ -41,3 +41,8 @@ daily_minutes_good = [68.77,51.25,52.08,38.36,44.54,57.13,51.4,41.42,31.22,34.76
 
 random.seed(0)
 beta = estimate_beta(x, daily_minutes_good)
+
+def multiple_r_sqared(x, y, beta):
+    sum_of_sqared_errors = sum(error(x_i, y_i, beta) ** 2
+                               for x_i, y_i in zip(x, y))
+    return 1.0 - sum_of_sqared_errors / total_sum_of_squares(y)
