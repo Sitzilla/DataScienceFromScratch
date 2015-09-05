@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef077d16-ad32-4af0-a65f-70486dc2e5d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MultipleRegression.py" afterPath="$PROJECT_DIR$/MultipleRegression.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DecisionTrees.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DataScienceFromScratch.iws" />
@@ -24,11 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MultipleRegression.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MultipleRegression.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MultipleRegression.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28668478">
-              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DecisionTrees.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DecisionTrees.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.91847825">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -73,6 +85,7 @@
         <option value="$PROJECT_DIR$/gradient_descent.py" />
         <option value="$PROJECT_DIR$/linear_algebra.py" />
         <option value="$PROJECT_DIR$/MultipleRegression.py" />
+        <option value="$PROJECT_DIR$/DecisionTrees.py" />
       </list>
     </option>
   </component>
@@ -681,8 +694,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MultipleRegression.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28668478">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DecisionTrees.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.91847825">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
