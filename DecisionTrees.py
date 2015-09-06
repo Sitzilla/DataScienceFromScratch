@@ -1,4 +1,5 @@
-from collections import Counter
+from __future__ import division
+from collections import Counter, defaultdict
 import math
 
 
@@ -47,3 +48,21 @@ def partition_entropy(subsets):
         ({'level': 'Junior', 'lang': 'Python', 'tweets': 'no', 'phd': 'yes'}, False)
     ]
 
+
+def partition_by(inputs, attribute):
+    """each input is a parit (attribute_dict, labels).
+        returns a dict : attribute_values -> inputs"""
+    groups = defaultdict(list)
+    for input in inputs:
+        key = input[0][attribute]
+        groups[key].append(input)
+    return groups
+
+
+def partition_entropy_by(inputs, attribute):
+    """computes the entropy corresponding to the given partition"""
+    partitions = partition_by(inputs, attribute)
+    return partition_entropy(partitions.values())
+
+
+for key in ['level', 'lang', 'tweets', 'phd']
