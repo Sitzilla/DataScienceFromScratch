@@ -55,7 +55,6 @@ def n_gram_model():
     for prev, current in bigrams:
         transitions[prev].append(current)
 
-
     def generate_using_bigrams():
         current = "."  # the next word that will start a sentence
         result = []
@@ -97,20 +96,19 @@ def n_gram_model():
 def grammar_rules():
     # data pasted from https://github.com/joelgrus/data-science-from-scratch/blob/master/code/natural_language_processing.py
     grammar = {
-        "_S"  : ["_NP _VP"],
-        "_NP" : ["_N",
-                 "_A _NP _P _A _N"],
-        "_VP" : ["_V",
-                 "_V _NP"],
-        "_N"  : ["data science", "Python", "regression"],
-        "_A"  : ["big", "linear", "logistic"],
-        "_P"  : ["about", "near"],
-        "_V"  : ["learns", "trains", "tests", "is"]
+        "_S": ["_NP _VP"],
+        "_NP": ["_N",
+                "_A _NP _P _A _N"],
+        "_VP": ["_V",
+                "_V _NP"],
+        "_N": ["data science", "Python", "regression"],
+        "_A": ["big", "linear", "logistic"],
+        "_P": ["about", "near"],
+        "_V": ["learns", "trains", "tests", "is"]
     }
 
     def is_terminal(token):
         return token[0] != "_"
-
 
     def expand(grammar, tokens):
         for i, token in enumerate(tokens):
@@ -125,7 +123,7 @@ def grammar_rules():
             if is_terminal(replacement):
                 tokens[i] = replacement
             else:
-                tokens = tokens[:i] + replacement.split() + tokens[(i+1):]
+                tokens = tokens[:i] + replacement.split() + tokens[(i + 1):]
 
             # now call expand on new list of tokens
             return expand(grammar, tokens)
@@ -138,21 +136,39 @@ def grammar_rules():
 
     print generate_sentence(grammar)
 
-grammar_rules()
 
+def gibbs_sampling():
+    def roll_a_dice():
+        return random.choice([1, 2, 3, 4, 5, 6])
 
+    def direct_sample():
+        d1 = roll_a_dice();
+        d2 = roll_a_dice();
+        return d1, d1 + d2
 
+    def random_y_given_x(x):
+        return x + roll_a_dice()
 
+    def random_x_given_y(y):
+        if y <= 7:
+            # first die equally likely to be anything up to total - 1
+            return random.randrange(1, y)
+        else:
+            # first die equally likely to be anything up to 6
+            return random.randrange(y - 6, 7)
 
+    def gibbs_sample(num_iters=500):
+        x, y = 1, 2
+        for _ in range(num_iters):
+            x = random_x_given_y(y)
+            y = random_y_given_x(x)
+        return x, y
 
+    def compare_distributions(num_samples=1000):
+        counts = defaultdict(lambda : [0, 0])
+        for _ in range(num_samples):
+            counts[gibbs_sample()][0] += 1
+            counts[direct_sample()][1] += 1
+        return counts
 
-
-
-
-
-
-
-
-
-
-
+    print compare_distributions()
