@@ -54,7 +54,7 @@ def squared_clustering_errors(inputs, k):
                for input, cluster in zip(inputs, assignments))
 
 
-def recolor_image(file_path, k = 5):
+def recolor_image(file_path, k=5):
     def recolor(pixel):
         cluster = clusterer.classify(pixel)  # index of the closest cluster
         return clusterer.means[cluster]  # mean of the closest cluster
@@ -98,7 +98,7 @@ def get_values(cluster):
         return cluster
     else:
         return [value for child in get_children(cluster)
-        for value in get_values(child)]
+                for value in get_values(child)]
 
 
 def cluster_distance(cluster1, cluster2, distance_agg=min):
@@ -113,7 +113,7 @@ def get_merge_order(cluster):
     if is_leaf(cluster):
         return float('inf')
     else:
-        return cluster[0] #merge_order is first element in 2-tuple
+        return cluster[0]  # merge_order is first element in 2-tuple
 
 
 def bottom_up_cluster(inputs, distance_agg=min):
@@ -125,7 +125,7 @@ def bottom_up_cluster(inputs, distance_agg=min):
         # find the two closest clusters
         c1, c2 = min([(cluster1, cluster2)
                       for i, cluster1 in enumerate(clusters)
-                      for cluster2  in clusters[:i]],
+                      for cluster2 in clusters[:i]],
                      key=lambda (x, y): cluster_distance(x, y, distance_agg))
 
         # remove them from the list of clusters
@@ -140,6 +140,21 @@ def bottom_up_cluster(inputs, distance_agg=min):
     return clusters[0]
 
 
+def generate_clusters(base_cluster, num_clusters):
+    # start with a list of only the base cluster
+    clusters = [base_cluster]
+
+    # as long as we dont have enough clusters yet...
+    while len(clusters) < num_clusters:
+        # choose the last-merged of our clusters
+        next_cluster = min(clusters, key=get_merge_order)
+        # remove it from the list
+        clusters = [c for c in clusters if c != next_cluster]
+        # and add its children to the list (i.e. unmerge it)
+        clusters.extend(get_children(next_cluster))
+
+    # once we have enough clusters
+    return clusters
 
 
 # test data copied from https://github.com/joelgrus/data-science-from-scratch/blob/master/code/clustering.py
@@ -167,3 +182,22 @@ plt.show()
 
 # Bottom-up Hierarchical Clustering
 base_cluster = bottom_up_cluster(inputs)
+
+three_clusters = [get_values(cluster)
+                  for cluster in generate_clusters(base_cluster, 3)]
+
+for i, cluster, marker, color in zip([1, 2, 3],
+                                     three_clusters,
+                                     ['D', 'o', '*'],
+                                     ['r', 'g', 'b']):
+    xs, ys = zip(*cluster)
+    plt.scatter(xs, ys, color=color, marker=marker)
+
+    # put a number at the mean of the cluster
+    x, y = vector_mean(cluster)
+    plt.plot(x, y, marker='$' + str(i) + '$', color='black')
+
+plt.title("User locations -- 3 Bottom-up Clusters, Min")
+plt.xlabel("blocks east of city center")
+plt.ylabel("blocks north of city center")
+plt.show()
