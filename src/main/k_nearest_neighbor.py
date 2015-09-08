@@ -1,6 +1,6 @@
 from __future__ import division
 from collections import Counter
-import distance as distance
+from src.helper.linear_algebra import distance
 from statistics import mean
 import math, random
 import matplotlib.pyplot as plt
@@ -40,7 +40,7 @@ def knn_classify(k, labeled_points, new_point):
     return majority_votes(k_nearest_labels)
 
 
-""" randomly generated data taken from"
+""" randomly generated data taken from:
  https://github.com/joelgrus/data-science-from-scratch/blob/master/code/nearest_neighbors.py"""
 cities = [(-86.75, 33.5666666666667, 'Python'), (-88.25, 30.6833333333333, 'Python'),
           (-112.016666666667, 33.4333333333333, 'Java'), (-110.933333333333, 32.1166666666667, 'Java'),
@@ -77,6 +77,8 @@ cities = [(-86.75, 33.5666666666667, 'Python'), (-88.25, 30.6833333333333, 'Pyth
           (-77.3333333333333, 37.5, 'Python'), (-122.3, 47.5333333333333, 'Python'),
           (-89.3333333333333, 43.1333333333333, 'R'), (-104.816666666667, 41.15, 'Java')]
 
+cities = [([longitude, latitude], language) for longitude, latitude, language in cities]
+
 
 def plot_cities():
     # key is language, value is lat/lon pair
@@ -86,20 +88,54 @@ def plot_cities():
     markers = {"Java": "o", "Python": "s", "R": "^"}
     colors = {"Java": "r", "Python": "g", "R": "b"}
 
-    for (lon, lat), language in cities:
-        plots[language][0].append(lon)
-        plots[language][1].append(lat)
+    for (longitude, latitude), language in cities:
+        plots[language][0].append(longitude)
+        plots[language][1].append(latitude)
 
 
     # create a scatter series for each language
     for language, (x, y) in plots.iteritems():
-        plt.scatter(x, y, colors=colors[language], marker=markers[language],
+        plt.scatter(x, y, color=colors[language], marker=markers[language],
                     label=language, zorder=10)
 
-        plt.legend(loc=0)
-        plt.axis([-130,-60,20,55])
-        plt.title("Fav Programming Languages")
-        plt.show()
+    plt.legend(loc=0)
+    plt.axis([-130, -60, 20, 55])
+    plt.title("Fav Programming Languages")
+    plt.show()
+
+
+def classify_and_plot_grid(k=1):
+    # key is language, value is lat/lon pair
+    plots = {"Java": ([], []), "Python": ([], []), "R": ([], [])}
+
+    # we want each language to have a different marker and color
+    markers = {"Java": "o", "Python": "s", "R": "^"}
+    colors = {"Java": "r", "Python": "b", "R": "g"}
+
+    for longitude in range(-130, -60):
+        for latitude in range(20, 55):
+            predicted_language = knn_classify(k, cities, [longitude, latitude])
+            plots[predicted_language][0].append(longitude)
+            plots[predicted_language][1].append(latitude)
+
+    # create a scatter series for each language
+    for language, (x, y) in plots.iteritems():
+        plt.scatter(x, y, color=colors[language], marker=markers[language],
+                    label=language, zorder=0)
+
+    plt.legend(loc=0)
+    plt.axis([-130, -60, 20, 55])
+    plt.title(str(k) + "Fav Programming Languages")
+    plt.show()
+
+
+def random_point(dim):
+    return [random.random() for _ in range(dim)]
+
+
+def random_distances(dim, num_pairs):
+    return [distance(random_point(dim), random_point(dim))
+            for _ in range(num_pairs)]
 
 
 # for several different values of k
@@ -118,3 +154,18 @@ for k in [1, 3, 5, 7]:
             num_correct += 1
 
     print k, "neighbors[s]:", num_correct, "correct out of", len(cities)
+
+dimensions = range(1, 101)
+
+avg_distances = []
+min_distances = []
+
+random.seed(0)
+for dim in dimensions:
+    distances = random_distances(dim, 10000)  # 10,000 random pairs
+    avg_distances.append(mean(distances))  # track the average
+    min_distances.append(min(distances))  # track the minimum
+
+    print dim, "Minimum: ", "%.2f" % min(distances), " Mean: ", "%.2f" % mean(distances), " Ratio: ", "%.2f" % (min(distances) / mean(distances))
+
+classify_and_plot_grid()

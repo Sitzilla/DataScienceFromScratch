@@ -4,7 +4,7 @@ import random
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 
-from src.helper import squared_distance, vector_mean, distance
+from src.helper.linear_algebra import squared_distance, vector_mean, distance
 
 
 class KMeans:
