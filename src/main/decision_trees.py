@@ -122,7 +122,7 @@ inputs = [
 ]
 
 for key in ['level', 'lang', 'tweets', 'phd']:
-    print key, partition_entropy_by(inputs, key)
+    print key, "%.2f" % partition_entropy_by(inputs, key)
 
 print "Building tree"
 tree = build_tree_id3(inputs)
