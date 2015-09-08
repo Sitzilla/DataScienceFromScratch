@@ -1,4 +1,8 @@
+
+### IMCOMPLETE CHAPTER ###
+
 from __future__ import division
+import math
 from linear_algebra import dot
 
 
@@ -11,4 +15,11 @@ def perceptrons_outputs(weights, bias, x):
     calculation = dot(weights, x) + bias
     return step_function(calculation)
 
+
+def sigmoid(t):
+    return 1 / (1 + math.exp(-t))
+
+
+def neuron_output(weights, inputs):
+    return sigmoid(dot(weights, inputs))
 
