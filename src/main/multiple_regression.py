@@ -1,7 +1,11 @@
+
+### INCOMPLETE CHAPTER ###
+
 from __future__ import division
 import random
-from linear_algebra import dot
-from gradient_descent import minimize_stochastic
+
+from helper.linear_algebra import dot
+from src.helper.gradient_descent import minimize_stochastic
 
 
 def predict(x_i, beta):

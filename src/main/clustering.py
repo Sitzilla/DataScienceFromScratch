@@ -1,8 +1,10 @@
 from __future__ import division
-from linear_algebra import squared_distance, vector_mean, distance
-import math, random
+import random
+
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
+
+from src.helper import squared_distance, vector_mean, distance
 
 
 class KMeans:

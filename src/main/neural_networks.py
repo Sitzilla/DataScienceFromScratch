@@ -3,7 +3,8 @@
 
 from __future__ import division
 import math
-from linear_algebra import dot
+
+from src.helper import dot
 
 
 def step_function(x):

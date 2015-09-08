@@ -5,13 +5,13 @@ from bs4 import BeautifulSoup
 import re
 import requests
 from time import sleep
+
 base_url = "http://shop.oreilly.com/category/browse-subjects/apple-mac.do?sortby=publicationDate&page="
 
 books = []
 
 
 def is_video(td):
-
     """it's a video if it has exactly one pricelabel, and if
     the stripped text inside that pricelabel starts with 'Video'"""
     pricelabels = td('span', 'pricelabel')
@@ -31,18 +31,20 @@ def book_info(td):
     date = td.find("span", "directorydate").text.strip()
 
     return {
-        "title" : title,
-        "authors" : authors,
-        "isbn" : isbn,
-        "date" : date
+        "title": title,
+        "authors": authors,
+        "isbn": isbn,
+        "date": date
     }
+
 
 def print_books_found(books):
     for book in books:
         print book.get("title")
 
-def WebScrape(NUM_PAGES = 20):
-    for page_num in range (1, NUM_PAGES + 1):
+
+def web_scrape(NUM_PAGES=20):
+    for page_num in range(1, NUM_PAGES + 1):
         print "souping page", page_num, ",", len(books), " found so far"
         url = base_url + str(page_num)
         soup = BeautifulSoup(requests.get(url).text, 'html5lib')
@@ -57,4 +59,5 @@ def WebScrape(NUM_PAGES = 20):
     print "Total number of books found: ", len(books)
     print "Total number of pages crawled: ", NUM_PAGES
 
-WebScrape(20)
+
+web_scrape(20)
