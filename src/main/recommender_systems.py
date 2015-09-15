@@ -1,5 +1,5 @@
 from __future__ import division
-import math, random
+import math
 from collections import defaultdict, Counter
 from src.helper.linear_algebra import dot
 

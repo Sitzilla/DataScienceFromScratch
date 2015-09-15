@@ -1,6 +1,4 @@
 from __future__ import division
-from collections import Counter
-import math, random, csv, json
 from bs4 import BeautifulSoup
 import re
 import requests

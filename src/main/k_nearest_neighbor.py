@@ -2,7 +2,7 @@ from __future__ import division
 from collections import Counter
 from src.helper.linear_algebra import distance
 from statistics import mean
-import math, random
+import random
 import matplotlib.pyplot as plt
 
 

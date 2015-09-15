@@ -1,5 +1,5 @@
 from __future__ import division
-import math, random, re
+import random, re
 from collections import defaultdict, Counter
 from bs4 import BeautifulSoup
 import requests
@@ -183,24 +183,23 @@ def topic_modeling():
             rnd -= w  # return the smallest i such that
             if rnd <= 0: return i  # weights[0] + ... + weights[i] >= rnd
 
-
     # data pasted from https://github.com/joelgrus/data-science-from-scratch/blob/master/code/natural_language_processing.py
     documents = [
-    ["Hadoop", "Big Data", "HBase", "Java", "Spark", "Storm", "Cassandra"],
-    ["NoSQL", "MongoDB", "Cassandra", "HBase", "Postgres"],
-    ["Python", "scikit-learn", "scipy", "numpy", "statsmodels", "pandas"],
-    ["R", "Python", "statistics", "regression", "probability"],
-    ["machine learning", "regression", "decision trees", "libsvm"],
-    ["Python", "R", "Java", "C++", "Haskell", "programming languages"],
-    ["statistics", "probability", "mathematics", "theory"],
-    ["machine learning", "scikit-learn", "Mahout", "neural networks"],
-    ["neural networks", "deep learning", "Big Data", "artificial intelligence"],
-    ["Hadoop", "Java", "MapReduce", "Big Data"],
-    ["statistics", "R", "statsmodels"],
-    ["C++", "deep learning", "artificial intelligence", "probability"],
-    ["pandas", "R", "Python"],
-    ["databases", "HBase", "Postgres", "MySQL", "MongoDB"],
-    ["libsvm", "regression", "support vector machines"]
+        ["Hadoop", "Big Data", "HBase", "Java", "Spark", "Storm", "Cassandra"],
+        ["NoSQL", "MongoDB", "Cassandra", "HBase", "Postgres"],
+        ["Python", "scikit-learn", "scipy", "numpy", "statsmodels", "pandas"],
+        ["R", "Python", "statistics", "regression", "probability"],
+        ["machine learning", "regression", "decision trees", "libsvm"],
+        ["Python", "R", "Java", "C++", "Haskell", "programming languages"],
+        ["statistics", "probability", "mathematics", "theory"],
+        ["machine learning", "scikit-learn", "Mahout", "neural networks"],
+        ["neural networks", "deep learning", "Big Data", "artificial intelligence"],
+        ["Hadoop", "Java", "MapReduce", "Big Data"],
+        ["statistics", "R", "statsmodels"],
+        ["C++", "deep learning", "artificial intelligence", "probability"],
+        ["pandas", "R", "Python"],
+        ["databases", "HBase", "Postgres", "MySQL", "MongoDB"],
+        ["libsvm", "regression", "support vector machines"]
     ]
 
     # four topics
@@ -255,12 +254,10 @@ def topic_modeling():
             topic_word_counts[topic][word] += 1
             topic_counts[topic] += 1
 
-
     for iter in range(1000):
         for d in range(D):
             for i, (word, topic) in enumerate(zip(documents[d],
                                                   document_topics[d])):
-
                 # remove this word / topic from the counts
                 # so that it doesn't influence the weights
                 document_topic_counts[d][topic] -= 1
