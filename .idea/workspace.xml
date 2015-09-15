@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef077d16-ad32-4af0-a65f-70486dc2e5d5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/mapreduce.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/k_nearest_neighbor.py" afterPath="$PROJECT_DIR$/src/main/k_nearest_neighbor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/natural_language_processing.py" afterPath="$PROJECT_DIR$/src/main/natural_language_processing.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/recommender_systems.py" afterPath="$PROJECT_DIR$/src/main/recommender_systems.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/web_scrape.py" afterPath="$PROJECT_DIR$/src/main/web_scrape.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="ef077d16-ad32-4af0-a65f-70486dc2e5d5" name="Default" comment="" />
     <ignored path="DataScienceFromScratch.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +24,8 @@
       <file leaf-file-name="mapreduce.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/mapreduce.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1910828">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.54140127">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -84,11 +77,11 @@
         <option value="$PROJECT_DIR$/src/main/clustering.py" />
         <option value="$PROJECT_DIR$/src/main/decision_trees.py" />
         <option value="$PROJECT_DIR$/src/main/naive_bayes.py" />
-        <option value="$PROJECT_DIR$/src/main/mapreduce.py" />
         <option value="$PROJECT_DIR$/src/main/recommender_systems.py" />
         <option value="$PROJECT_DIR$/src/main/web_scrape.py" />
         <option value="$PROJECT_DIR$/src/main/natural_language_processing.py" />
         <option value="$PROJECT_DIR$/src/main/k_nearest_neighbor.py" />
+        <option value="$PROJECT_DIR$/src/main/mapreduce.py" />
       </list>
     </option>
   </component>
@@ -194,7 +187,7 @@
       <recent name="$PROJECT_DIR$/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.natural_language_processing">
+  <component name="RunManager" selected="Python.mapreduce">
     <configuration default="false" name="decision_trees" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -229,23 +222,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="clustering" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="DataScienceFromScratch" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/clustering.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="natural_language_processing" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -276,6 +252,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="DataScienceFromScratch" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/web_scrape.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="mapreduce" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/main" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="DataScienceFromScratch" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main/mapreduce.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -423,17 +416,17 @@
       <item index="0" class="java.lang.String" itemvalue="Python.recommender_systems" />
       <item index="1" class="java.lang.String" itemvalue="Python.decision_trees" />
       <item index="2" class="java.lang.String" itemvalue="Python.naive_bayes" />
-      <item index="3" class="java.lang.String" itemvalue="Python.clustering" />
-      <item index="4" class="java.lang.String" itemvalue="Python.natural_language_processing" />
-      <item index="5" class="java.lang.String" itemvalue="Python.web_scrape" />
+      <item index="3" class="java.lang.String" itemvalue="Python.natural_language_processing" />
+      <item index="4" class="java.lang.String" itemvalue="Python.web_scrape" />
+      <item index="5" class="java.lang.String" itemvalue="Python.mapreduce" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.natural_language_processing" />
-        <item index="1" class="java.lang.String" itemvalue="Python.web_scrape" />
-        <item index="2" class="java.lang.String" itemvalue="Python.naive_bayes" />
-        <item index="3" class="java.lang.String" itemvalue="Python.decision_trees" />
-        <item index="4" class="java.lang.String" itemvalue="Python.clustering" />
+        <item index="0" class="java.lang.String" itemvalue="Python.mapreduce" />
+        <item index="1" class="java.lang.String" itemvalue="Python.natural_language_processing" />
+        <item index="2" class="java.lang.String" itemvalue="Python.web_scrape" />
+        <item index="3" class="java.lang.String" itemvalue="Python.naive_bayes" />
+        <item index="4" class="java.lang.String" itemvalue="Python.decision_trees" />
       </list>
     </recent_temporary>
   </component>
@@ -452,9 +445,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="23" y="23" width="1400" height="833" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -524,7 +517,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="127" column="29" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -562,7 +555,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -580,7 +573,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -835,7 +828,7 @@
         <state vertical-scroll-proportion="4.044586">
           <caret line="127" column="29" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -873,7 +866,7 @@
         <state vertical-scroll-proportion="0.7324841">
           <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,7 +884,7 @@
         <state vertical-scroll-proportion="0.60509557">
           <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -908,8 +901,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/mapreduce.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1910828">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.54140127">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
