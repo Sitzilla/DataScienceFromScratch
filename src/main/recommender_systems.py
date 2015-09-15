@@ -127,26 +127,27 @@ def item_based_suggestions(user_id, include_current_interests=False):
                 for suggestion, weight in suggestions
                 if suggestion not in users_interests[user_id]]
 
+if __name__ == "__main__":
 
-print "Popular interest counts:"
-print popular_interests
-print
+    print "Popular interest counts:"
+    print popular_interests
+    print
 
-print "Most popular new interests:"
-print most_popular_new_interests(users_interests)
-print
+    print "Most popular new interests:"
+    print most_popular_new_interests(users_interests)
+    print
 
-print "User based similarity example for user 0:"
-print most_similar_users_to(0)
-print
+    print "User based similarity example for user 0:"
+    print most_similar_users_to(0)
+    print
 
-print "Suggestions for user 0 off of the user-based suggestions model:"
-print user_based_suggestions(0)
-print
+    print "Suggestions for user 0 off of the user-based suggestions model:"
+    print user_based_suggestions(0)
+    print
 
-print "Item based suggestions for Big Data:"
-print most_similar_interests_to(0)
-print
+    print "Item based suggestions for Big Data:"
+    print most_similar_interests_to(0)
+    print
 
-print "Suggestions for user 0 off of the item-based suggestions model:"
-print item_based_suggestions(0)
+    print "Suggestions for user 0 off of the item-based suggestions model:"
+    print item_based_suggestions(0)

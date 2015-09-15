@@ -57,5 +57,6 @@ def web_scrape(NUM_PAGES=20):
     print "Total number of books found: ", len(books)
     print "Total number of pages crawled: ", NUM_PAGES
 
+if __name__ == "__main__":
 
-web_scrape(20)
+    web_scrape(20)

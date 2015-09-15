@@ -103,40 +103,41 @@ def build_tree_id3(inputs, split_candidates=None):
 
     return best_attribute, subtrees
 
+if __name__ == "__main__":
 
-inputs = [
-    ({'level': 'Senior', 'lang': 'Java', 'tweets': 'no', 'phd': 'no'}, False),
-    ({'level': 'Senior', 'lang': 'Java', 'tweets': 'no', 'phd': 'yes'}, False),
-    ({'level': 'Mid', 'lang': 'Python', 'tweets': 'no', 'phd': 'no'}, True),
-    ({'level': 'Junior', 'lang': 'Python', 'tweets': 'no', 'phd': 'no'}, True),
-    ({'level': 'Junior', 'lang': 'R', 'tweets': 'yes', 'phd': 'no'}, True),
-    ({'level': 'Junior', 'lang': 'R', 'tweets': 'yes', 'phd': 'yes'}, False),
-    ({'level': 'Mid', 'lang': 'R', 'tweets': 'yes', 'phd': 'yes'}, True),
-    ({'level': 'Senior', 'lang': 'Python', 'tweets': 'no', 'phd': 'no'}, False),
-    ({'level': 'Senior', 'lang': 'R', 'tweets': 'yes', 'phd': 'no'}, True),
-    ({'level': 'Junior', 'lang': 'Python', 'tweets': 'yes', 'phd': 'no'}, True),
-    ({'level': 'Senior', 'lang': 'Python', 'tweets': 'yes', 'phd': 'yes'}, True),
-    ({'level': 'Mid', 'lang': 'Python', 'tweets': 'no', 'phd': 'yes'}, True),
-    ({'level': 'Mid', 'lang': 'Java', 'tweets': 'yes', 'phd': 'no'}, True),
-    ({'level': 'Junior', 'lang': 'Python', 'tweets': 'no', 'phd': 'yes'}, False)
-]
+    inputs = [
+        ({'level': 'Senior', 'lang': 'Java', 'tweets': 'no', 'phd': 'no'}, False),
+        ({'level': 'Senior', 'lang': 'Java', 'tweets': 'no', 'phd': 'yes'}, False),
+        ({'level': 'Mid', 'lang': 'Python', 'tweets': 'no', 'phd': 'no'}, True),
+        ({'level': 'Junior', 'lang': 'Python', 'tweets': 'no', 'phd': 'no'}, True),
+        ({'level': 'Junior', 'lang': 'R', 'tweets': 'yes', 'phd': 'no'}, True),
+        ({'level': 'Junior', 'lang': 'R', 'tweets': 'yes', 'phd': 'yes'}, False),
+        ({'level': 'Mid', 'lang': 'R', 'tweets': 'yes', 'phd': 'yes'}, True),
+        ({'level': 'Senior', 'lang': 'Python', 'tweets': 'no', 'phd': 'no'}, False),
+        ({'level': 'Senior', 'lang': 'R', 'tweets': 'yes', 'phd': 'no'}, True),
+        ({'level': 'Junior', 'lang': 'Python', 'tweets': 'yes', 'phd': 'no'}, True),
+        ({'level': 'Senior', 'lang': 'Python', 'tweets': 'yes', 'phd': 'yes'}, True),
+        ({'level': 'Mid', 'lang': 'Python', 'tweets': 'no', 'phd': 'yes'}, True),
+        ({'level': 'Mid', 'lang': 'Java', 'tweets': 'yes', 'phd': 'no'}, True),
+        ({'level': 'Junior', 'lang': 'Python', 'tweets': 'no', 'phd': 'yes'}, False)
+    ]
 
-for key in ['level', 'lang', 'tweets', 'phd']:
-    print key, "%.2f" % partition_entropy_by(inputs, key)
+    for key in ['level', 'lang', 'tweets', 'phd']:
+        print key, "%.2f" % partition_entropy_by(inputs, key)
 
-print "Building tree"
-tree = build_tree_id3(inputs)
-print tree
+    print "Building tree"
+    tree = build_tree_id3(inputs)
+    print tree
 
-print "Junior / Java / tweets / no phd", classify(tree, {"level": "Junior",
-                                                         "lang": "Java",
-                                                         "tweets": "yes",
-                                                         "phd": "no"})  # True
+    print "Junior / Java / tweets / no phd", classify(tree, {"level": "Junior",
+                                                             "lang": "Java",
+                                                             "tweets": "yes",
+                                                             "phd": "no"})  # True
 
-print "Junior / Java / tweets / phd", classify(tree, {"level": "Junior",
-                                                      "lang": "Java",
-                                                      "tweets": "yes",
-                                                      "phd": "yes"})  # False
+    print "Junior / Java / tweets / phd", classify(tree, {"level": "Junior",
+                                                          "lang": "Java",
+                                                          "tweets": "yes",
+                                                          "phd": "yes"})  # False
 
-print "Intern", classify(tree, {"level": "Intern"})  # True
-print "Senior", classify(tree, {"level": "Senior"})  # False
+    print "Intern", classify(tree, {"level": "Intern"})  # True
+    print "Senior", classify(tree, {"level": "Senior"})  # False

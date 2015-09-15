@@ -158,48 +158,49 @@ def generate_clusters(base_cluster, num_clusters):
     # once we have enough clusters
     return clusters
 
+if __name__ == "__main__":
 
-# test data copied from https://github.com/joelgrus/data-science-from-scratch/blob/master/code/clustering.py
-inputs = [[-14, -5], [13, 13], [20, 23], [-19, -11], [-9, -16], [21, 27], [-49, 15], [26, 13], [-46, 5], [-34, -1],
-          [11, 15], [-49, 0], [-22, -16], [19, 28], [-12, -8], [-13, -19], [-41, 8], [-11, -6], [-25, -9], [-18, -3]]
-
-
-# K-Means clustering
-random.seed(0)  # so that we can compare results
-clusterer = KMeans(3)
-clusterer.train(inputs)
-print "Error with k = 3: ", clusterer.means
-
-# now plot from 1 up to len(inputs) clusters
-ks = range(1, len(inputs) + 1)
-errors = [squared_clustering_errors(inputs, k) for k in ks]
-
-plt.plot(ks, errors)
-plt.xticks(ks)
-plt.xlabel("k")
-plt.ylabel("total squared error")
-plt.title("Total Error vs. # of Clusters")
-plt.show()
+    # test data copied from https://github.com/joelgrus/data-science-from-scratch/blob/master/code/clustering.py
+    inputs = [[-14, -5], [13, 13], [20, 23], [-19, -11], [-9, -16], [21, 27], [-49, 15], [26, 13], [-46, 5], [-34, -1],
+              [11, 15], [-49, 0], [-22, -16], [19, 28], [-12, -8], [-13, -19], [-41, 8], [-11, -6], [-25, -9], [-18, -3]]
 
 
-# Bottom-up Hierarchical Clustering
-base_cluster = bottom_up_cluster(inputs)
+    # K-Means clustering
+    random.seed(0)  # so that we can compare results
+    clusterer = KMeans(3)
+    clusterer.train(inputs)
+    print "Error with k = 3: ", clusterer.means
 
-three_clusters = [get_values(cluster)
-                  for cluster in generate_clusters(base_cluster, 3)]
+    # now plot from 1 up to len(inputs) clusters
+    ks = range(1, len(inputs) + 1)
+    errors = [squared_clustering_errors(inputs, k) for k in ks]
 
-for i, cluster, marker, color in zip([1, 2, 3],
-                                     three_clusters,
-                                     ['D', 'o', '*'],
-                                     ['r', 'g', 'b']):
-    xs, ys = zip(*cluster)
-    plt.scatter(xs, ys, color=color, marker=marker)
+    plt.plot(ks, errors)
+    plt.xticks(ks)
+    plt.xlabel("k")
+    plt.ylabel("total squared error")
+    plt.title("Total Error vs. # of Clusters")
+    plt.show()
 
-    # put a number at the mean of the cluster
-    x, y = vector_mean(cluster)
-    plt.plot(x, y, marker='$' + str(i) + '$', color='black')
 
-plt.title("User locations -- 3 Bottom-up Clusters, Min")
-plt.xlabel("blocks east of city center")
-plt.ylabel("blocks north of city center")
-plt.show()
+    # Bottom-up Hierarchical Clustering
+    base_cluster = bottom_up_cluster(inputs)
+
+    three_clusters = [get_values(cluster)
+                      for cluster in generate_clusters(base_cluster, 3)]
+
+    for i, cluster, marker, color in zip([1, 2, 3],
+                                         three_clusters,
+                                         ['D', 'o', '*'],
+                                         ['r', 'g', 'b']):
+        xs, ys = zip(*cluster)
+        plt.scatter(xs, ys, color=color, marker=marker)
+
+        # put a number at the mean of the cluster
+        x, y = vector_mean(cluster)
+        plt.plot(x, y, marker='$' + str(i) + '$', color='black')
+
+    plt.title("User locations -- 3 Bottom-up Clusters, Min")
+    plt.xlabel("blocks east of city center")
+    plt.ylabel("blocks north of city center")
+    plt.show()

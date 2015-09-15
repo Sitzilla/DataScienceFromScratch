@@ -149,6 +149,8 @@ def train_and_test_model(path):
     print("Non-spammiest words: ")
     print(non_spammiest_words)
 
-# path for corpus of data
-path = r"/Users/evan/PycharmProjects/DataScienceFromScratch/src/resources/lingspam_public/lemm/*/*"
-train_and_test_model(path)
+if __name__ == "__main__":
+
+    # path for corpus of data
+    path = r"/Users/evan/PycharmProjects/DataScienceFromScratch/src/resources/lingspam_public/lemm/*/*"
+    train_and_test_model(path)

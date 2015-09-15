@@ -138,34 +138,36 @@ def random_distances(dim, num_pairs):
             for _ in range(num_pairs)]
 
 
-# for several different values of k
-for k in [1, 3, 5, 7]:
-    num_correct = 0
+if __name__ == "__main__":
 
-    for city in cities:
-        location, actual_language = city
-        other_cities = [other_city
-                        for other_city in cities
-                        if other_city != city]
+    # for several different values of k
+    for k in [1, 3, 5, 7]:
+        num_correct = 0
 
-        predicted_language = knn_classify(k, other_cities, location)
+        for city in cities:
+            location, actual_language = city
+            other_cities = [other_city
+                            for other_city in cities
+                            if other_city != city]
 
-        if predicted_language == actual_language:
-            num_correct += 1
+            predicted_language = knn_classify(k, other_cities, location)
 
-    print k, "neighbors[s]:", num_correct, "correct out of", len(cities)
+            if predicted_language == actual_language:
+                num_correct += 1
 
-dimensions = range(1, 101)
+        print k, "neighbors[s]:", num_correct, "correct out of", len(cities)
 
-avg_distances = []
-min_distances = []
+    dimensions = range(1, 101)
 
-random.seed(0)
-for dim in dimensions:
-    distances = random_distances(dim, 10000)  # 10,000 random pairs
-    avg_distances.append(mean(distances))  # track the average
-    min_distances.append(min(distances))  # track the minimum
+    avg_distances = []
+    min_distances = []
 
-    print dim, "Minimum: ", "%.2f" % min(distances), " Mean: ", "%.2f" % mean(distances), " Ratio: ", "%.2f" % (min(distances) / mean(distances))
+    random.seed(0)
+    for dim in dimensions:
+        distances = random_distances(dim, 10000)  # 10,000 random pairs
+        avg_distances.append(mean(distances))  # track the average
+        min_distances.append(min(distances))  # track the minimum
 
-classify_and_plot_grid()
+        print dim, "Minimum: ", "%.2f" % min(distances), " Mean: ", "%.2f" % mean(distances), " Ratio: ", "%.2f" % (min(distances) / mean(distances))
+
+    classify_and_plot_grid()
